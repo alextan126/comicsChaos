@@ -2,6 +2,7 @@ package com.example.application.views.home;
 
 import ai.peoplecode.OpenAIConversation;
 import com.vaadin.flow.component.Text;
+import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.progressbar.ProgressBar;
@@ -20,6 +21,9 @@ public class PlayerStatsView extends VerticalLayout {
     private int currentHealth;
     private com.vaadin.flow.component.html.Image playerImage;  // Add an Image component
 
+    public TextField getAbilityScore() {
+        return abilityScore;
+    }
 
     public PlayerStatsView(String playerLabel, OpenAIConversation judge, TextField playerName, com.vaadin.flow.component.html.Image playerImage) {
         this.playerImage = playerImage;
@@ -85,6 +89,15 @@ public class PlayerStatsView extends VerticalLayout {
         // For simplicity, using the player name to set a corresponding image file
         String url = judge.askQuestion("User the search engine to give me the url of this player. Format must be .jpg", playerName);
         playerImage.setSrc(url);
+    }
+
+    public void applyDamage(int damage) {
+        UI.getCurrent().access(() -> {
+            currentHealth = Math.max(currentHealth - damage, 0);  // Ensure health doesn't go below 0
+            healthBar.setValue((double) currentHealth / maxHealth);  // Update the progress bar
+            healthText.setText(currentHealth + " / " + maxHealth);  // Update the health text
+        });
+
     }
 }
 

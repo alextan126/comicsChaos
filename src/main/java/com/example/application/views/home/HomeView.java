@@ -107,8 +107,19 @@ public class HomeView extends VerticalLayout {
         TextField userPrompt = new TextField(playerLabel + " User Prompt");
         userPrompt.setPlaceholder("Enter command...");
 
+        Button doButton = new Button("Do this!");
+
+        doButton.addClickListener(event -> {
+            OpenAIConversation cur = playerLabel.equals("Left Player")? p1 : p2;
+            String moveSuggestion = cur.askQuestion("I am" + playerName + "My friend wants me to" + userPrompt.getValue() , "What is my reasonable move based on the" +
+                    "comics");
+            String movesToJudge = userPrompt.getValue();
+            String damageByJudge = judge.askQuestion("You are a fair judge to determine the ability score of a comics character." +
+                    "Give me a integer of this move's damage, ranging from 0 - 5000 based on my ability score. No explanation" + playerStatsView.getAbilityScore() , movesToJudge);
+            playerStatsView.applyDamage(Integer.parseInt(damageByJudge));
+        });
         // Add all components to the player layout
-        playerLayout.add(playerName, playerStatsView, playerImage, fightHistory, userPrompt);
+        playerLayout.add(playerName, playerStatsView, playerImage, fightHistory, userPrompt,doButton);
 
         return playerLayout;
     }
