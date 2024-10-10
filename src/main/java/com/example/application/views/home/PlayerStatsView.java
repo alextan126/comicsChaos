@@ -56,7 +56,7 @@ public class PlayerStatsView extends VerticalLayout {
             healthText.setText(currentHealth + " / " + maxHealth);
 
             // Dynamically update the player image based on playerName or other criteria
-            updatePlayerImage(playerName.getValue());
+            updatePlayerImage(playerName.getValue(), judge);
 
             add(abilityScore, setButton, healthBar, healthText);  // Make sure to add healthBar and healthText here
 
@@ -79,20 +79,12 @@ public class PlayerStatsView extends VerticalLayout {
     public int getCurrentHealth() {
         return currentHealth;
     }
-
-    private void updatePlayerImage(String playerName) {
+    //TODO fix this urlThing/ or find another way to upload image
+    private void updatePlayerImage(String playerName, OpenAIConversation judge) {
         // Logic to set image based on playerName or other criteria
         // For simplicity, using the player name to set a corresponding image file
-        switch (playerName.toLowerCase()) {
-            case "spiderman":
-                playerImage.setSrc("images/spiderman.png");
-                break;
-            case "batman":
-                playerImage.setSrc("images/batman.png");
-                break;
-            default:
-                playerImage.setSrc("images/default.png");  // Default image if no specific match
-                break;
-        }
+        String url = judge.askQuestion("User the search engine to give me the url of this player. Format must be .jpg", playerName);
+        playerImage.setSrc(url);
     }
 }
+

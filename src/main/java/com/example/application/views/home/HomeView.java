@@ -55,63 +55,63 @@ public class HomeView extends VerticalLayout {
     }
 
 
-        public HomeView() {
-            // Main layout containing two players
-            HorizontalLayout mainLayout = new HorizontalLayout();
+    public HomeView() {
+        // Main layout containing two players
+        HorizontalLayout mainLayout = new HorizontalLayout();
 
-            // Create the left player's layout
-            VerticalLayout leftPlayerLayout = createPlayerLayout("Left Player");
+        // Create the left player's layout
+        VerticalLayout leftPlayerLayout = createPlayerLayout("Left Player");
 
-            // Create the right player's layout
-            VerticalLayout rightPlayerLayout = createPlayerLayout("Right Player");
+        // Create the right player's layout
+        VerticalLayout rightPlayerLayout = createPlayerLayout("Right Player");
 
-            // Add both player layouts to the main layout
-            mainLayout.add(leftPlayerLayout, rightPlayerLayout);
+        // Add both player layouts to the main layout
+        mainLayout.add(leftPlayerLayout, rightPlayerLayout);
 
-            // Add the main layout to the view
-            add(mainLayout);
-        }
+        // Add the main layout to the view
+        add(mainLayout);
+    }
 
-        private VerticalLayout createPlayerLayout(String playerLabel) {
-             int maxHealth; // Max health points
-             int currentHealth;
-
-
-            VerticalLayout playerLayout = new VerticalLayout();
+    private VerticalLayout createPlayerLayout(String playerLabel) {
+        int maxHealth; // Max health points
+        int currentHealth;
 
 
-            //DONE add event listener, if a player name in inputed, gpt will determin the ability score and heath bar
-            //DONE now the player stats are intergrated to PlayerStatsView
-            // Player Name and Satistic
-            TextField playerName = new TextField(playerLabel + " Name");
-            playerName.setPlaceholder("Enter name");
+        VerticalLayout playerLayout = new VerticalLayout();
 
 
-            // Player Image
-            Image playerImage = new Image("testImage/testImage.jpg", playerLabel + " Image");
-
-            PlayerStatsView playerStatsView = new PlayerStatsView(playerLabel, judge, playerName, playerImage);
-
-            //TODO ask chat gpt to give the player an image
-
+        //DONE add event listener, if a player name in inputed, gpt will determin the ability score and heath bar
+        //DONE now the player stats are intergrated to PlayerStatsView
+        // Player Name and Satistic
+        TextField playerName = new TextField(playerLabel + " Name");
+        playerName.setPlaceholder("Enter name");
 
 
-            //TODO history the user prompt and system response should be placed here with visibility of the latest prompt
+        // Player Image
+        Image playerImage = new Image("testImage/testImage.jpg", playerLabel + " Image");
 
-            // Fight History
-            Text fightHistory = new Text(playerLabel + " Fight History: This is a placeholder");
+        PlayerStatsView playerStatsView = new PlayerStatsView(playerLabel, judge, playerName, playerImage);
 
-            //TODO Once user inputs a prompt, the move should be send to another bot, the other bot decides the dmg and deduction of health bar
+        //TODO unable to update player image  in PlayerStatsView
 
-            // User Prompt
-            TextField userPrompt = new TextField(playerLabel + " User Prompt");
-            userPrompt.setPlaceholder("Enter command...");
 
-            // Add all components to the player layout
-            playerLayout.add(playerName, playerStatsView, playerImage, fightHistory, userPrompt);
 
-            return playerLayout;
-        }
+        //TODO history the user prompt and system response should be placed here with visibility of the latest prompt
+
+        // Fight History
+        Text fightHistory = new Text(playerLabel + " Fight History: This is a placeholder");
+
+        //TODO Once user inputs a prompt, the move should be send to another bot, the other bot decides the dmg and deduction of health bar
+
+        // User Prompt
+        TextField userPrompt = new TextField(playerLabel + " User Prompt");
+        userPrompt.setPlaceholder("Enter command...");
+
+        // Add all components to the player layout
+        playerLayout.add(playerName, playerStatsView, playerImage, fightHistory, userPrompt);
+
+        return playerLayout;
+    }
 }
 
 

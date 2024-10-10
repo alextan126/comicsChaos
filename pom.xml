@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <!-- Project from https://start.vaadin.com/project/923dcc42-ed37-4067-9659-218f82a10a56 -->
     <groupId>com.example.application</groupId>
-    <artifactId>comicsChaos</artifactId>
+    <artifactId>my-app</artifactId>
     <name>my-app</name>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
@@ -104,12 +104,6 @@
             <!-- Production mode is activated using -Pproduction -->
             <id>production</id>
             <dependencies>
-                <dependency>
-                    <groupId>com.mashape.unirest</groupId>
-                    <artifactId>unirest-java</artifactId>
-                    <version>1.4.9</version> <!-- Add the latest version -->
-                </dependency>
-
                 <!-- Exclude development dependencies from production -->
                 <dependency>
                     <groupId>com.vaadin</groupId>
