@@ -99,8 +99,10 @@ public class HomeView extends VerticalLayout {
         //TODO history the user prompt and system response should be placed here with visibility of the latest prompt
 
         // Fight History
-        Text fightHistory = new Text(playerLabel + " Fight History: This is a placeholder");
-
+        ChatView fightHistory = new ChatView();
+        fightHistory.setWidth("100%");
+        fightHistory.setHeight("300px");
+        fightHistory.getStyle().set("overflow-y", "auto");
         //TODO Once user inputs a prompt, the move should be send to another bot, the other bot decides the dmg and deduction of health bar
 
         // User Prompt
@@ -113,10 +115,13 @@ public class HomeView extends VerticalLayout {
             OpenAIConversation cur = playerLabel.equals("Left Player")? p1 : p2;
             String moveSuggestion = cur.askQuestion("I am" + playerName + "My friend wants me to" + userPrompt.getValue() , "What is my reasonable move based on the" +
                     "comics");
+            fightHistory.addMessage(playerLabel, moveSuggestion);
             String movesToJudge = userPrompt.getValue();
+            fightHistory.addMessage(playerLabel, movesToJudge);
             String damageByJudge = judge.askQuestion("You are a fair judge to determine the ability score of a comics character." +
                     "Give me a integer of this move's damage, ranging from 0 - 5000 based on my ability score. No explanation" + playerStatsView.getAbilityScore() , movesToJudge);
             playerStatsView.applyDamage(Integer.parseInt(damageByJudge));
+            fightHistory.addMessage(playerLabel, "You have done " + damageByJudge + "points damage to opponent.");
         });
         // Add all components to the player layout
         playerLayout.add(playerName, playerStatsView, playerImage, fightHistory, userPrompt,doButton);
