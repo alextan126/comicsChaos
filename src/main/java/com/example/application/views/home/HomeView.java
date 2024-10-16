@@ -241,9 +241,11 @@ public class HomeView extends VerticalLayout {
     }
 
     private void triggerFightAnimation(PlayerStatsView opponentStatsView) {
-        opponentStatsView.getElement().getClassList().add("shake");
         opponentStatsView.getElement().executeJs(
-                "setTimeout(() => this.classList.remove('shake'), 500);"
+                "this.classList.remove('shake');" +
+                        "void this.offsetWidth;" +  // This forces reflow, allowing the animation to trigger again
+                        "this.classList.add('shake');" +
+                        "setTimeout(() => this.classList.remove('shake'), 500);"
         );
     }
 
