@@ -1,18 +1,22 @@
--Overview
-AI Battle Arena is a dynamic web application that allows users to simulate battles between AI-powered fighters. Each fighter has unique abilities, stats, and health, providing an engaging experience. The app utilizes the PeopleAi package, which calls the langchain4j library to generate realistic player stats based on information available to OpenAi. It is built using the Vaddin framework and implements three distinct views, with main logic implemented directly within the views due to the simplicity of the required interactions.
+**Overview**
 
--Features:
-  Fighter Selection: Users can select fighters and OpenAi will determine their stats and abilities based on the information available on the internet.
-  
-  Real-time Battle Simulation: The application displays real-time battle scenarios between selected fighters. Interactions are displayed in the form of chat history, and user can retrieve all the actions     that happened before.
 
-  Player Stats: Each fighter’s stats are generated using the PeopleAi package, which fetches relevant data from the langchain4j library.
+AI Battle Arena (also known as Comics Chaos) is an engaging and interactive web application that enables users to simulate dynamic battles between fighters. Each fighter is equipped with unique abilities, stats, and health, offering a personalized and exciting experience for users. The app leverages the PeopleAi package, which integrates the langchain4j library to generate realistic fighter stats based on information accessible to OpenAI. Built using the Vaadin framework, AI Battle Arena provides a smooth user experience, featuring three distinct views. The logic is directly implemented within the views to simplify the interactions required for the simulation.
 
-  Three-View Layout: The app is structured with three main views to facilitate interaction and easy components reuse.
+**Features**
 
-  Interactive UI: Built using Vaddin, the user interface provides an immersive experience with seamless transitions and effects.
 
-For more detailed readMe:
+    Fighter Selection: Users can choose from a variety of fighters, with their stats and abilities determined by OpenAI based on publicly available information.
+    Real-time Battle Simulation: The app displays real-time combat scenarios between the selected fighters, showcasing interactions in a chat-like format. Users can review the entire battle history, tracking all actions taken by each fighter.
+    Player Stats Generation: Fighter statistics are dynamically generated using the PeopleAi package, which pulls relevant data from the langchain4j library to ensure realistic and diverse attributes for each participant.
+    Three-View Layout: The application features a streamlined, three-view layout that facilitates user interaction and simplifies the reuse of components throughout the app.
+    Interactive User Interface: Built using the Vaadin framework, the user interface is highly interactive, featuring smooth transitions and immersive effects that enhance the user experience.
+    User selection of attacks: Users are able to select from a selection of 3 attacks that the selected fighter is best known for. Open AI will then determine how much damage that attack will do to the other player resulting in a nice round based system.
+
+
+**For a more detailed readMe:**
 https://docs.google.com/document/d/1MMcMNQ_vsHC0nGDXWoBmR_-K95xL46gOnaE0pNJRU6A/edit
-Check out the demo video:
+
+
+**Check out the demo video:**
 https://drive.google.com/file/d/1RGCtMIueOV9WWQbItgQfJTmIxj4tlpNg/view?usp=sharing
