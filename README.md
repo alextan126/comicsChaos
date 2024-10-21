@@ -6,12 +6,12 @@ AI Battle Arena (also known as Comics Chaos) is an engaging and interactive web 
 **Features**
 
 
-    Fighter Selection: Users can choose from a variety of fighters, with their stats and abilities determined by OpenAI based on publicly available information.
-    Real-time Battle Simulation: The app displays real-time combat scenarios between the selected fighters, showcasing interactions in a chat-like format. Users can review the entire battle history, tracking all actions taken by each fighter.
-    Player Stats Generation: Fighter statistics are dynamically generated using the PeopleAi package, which pulls relevant data from the langchain4j library to ensure realistic and diverse attributes for each participant.
-    Three-View Layout: The application features a streamlined, three-view layout that facilitates user interaction and simplifies the reuse of components throughout the app.
-    Interactive User Interface: Built using the Vaadin framework, the user interface is highly interactive, featuring smooth transitions and immersive effects that enhance the user experience.
-    User selection of attacks: Users are able to select from a selection of 3 attacks that the selected fighter is best known for. Open AI will then determine how much damage that attack will do to the other player resulting in a nice round based system.
+- Fighter Selection: Users can choose from a variety of fighters, with their stats and abilities determined by OpenAI based on publicly available information.
+- Player Stats Generation: Fighter statistics are dynamically generated using the PeopleAi package, which pulls relevant data from the langchain4j library to ensure realistic and diverse attributes for each participant.
+- User selection of attacks: Users are able to select from a selection of 3 attacks that the selected fighter is best known for. Open AI will then determine how much damage that attack will do to the other player resulting in a nice round based system.
+- Real-time Battle Simulation: The app displays real-time combat scenarios between the selected fighters, showcasing interactions in a chat-like format. Users can review the entire battle history, tracking all actions taken by each fighter.
+- Three-View Layout: The application features a streamlined, three-view layout that facilitates user interaction and simplifies the reuse of components throughout the app.
+- Interactive User Interface: Built using the Vaadin framework, the user interface is highly interactive, featuring smooth transitions and immersive effects that enhance the user experience.
 
 
 **For a more detailed readMe:**
